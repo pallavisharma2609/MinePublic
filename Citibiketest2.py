@@ -34,7 +34,7 @@ def run_query(query):
 
 rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
-print(df_pal)
+st.dataframe(df_pal)
 station_info_query = """
     SELECT 
         *
@@ -141,7 +141,7 @@ for row in rows:
 ## INITIAL DATA LOAD ##
 
 station_info_df = run_query(station_info_query)
-print(station_info_df)
+st.dataframe(station_info_df)
 timeperiod_df = run_query(timeperiod_query)
 
 ### UI CODE ###
