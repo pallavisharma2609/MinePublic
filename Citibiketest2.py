@@ -36,7 +36,9 @@ rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 st.dataframe(df_pal)
 station_info_query = """
-   select distinct start_station_name,end_station_name from trips limit 10000;
+    SELECT 
+        *
+    FROM  trips limit 10000;
 """
 
 timeperiod_query = """
@@ -108,14 +110,14 @@ def generate_num_rides_by_hour_query(station_name):
     query = f'''
         SELECT 
             hour,
-            num_rides / (select (max (to_date(starttime)) - min(to_date(stoptime))) ) as num_days
+           (num_rides / (select (max(to_date(starttime)) - min(to_date(stoptime)))  as num_days
             FROM trips 
             WHERE start_station_name = "{station_name}"
-            and end_station_name is not null) as daily_avg
+            and end_station_name is not null)) as daily_avg
         from (
         SELECT  
             HOUR(starttime) AS hour,
-            count(bikeid) as num_rides,
+            count(bikeid) as num_rides
         FROM trips 
         WHERE start_station_name = "{station_name}"
         and end_station_name is not null
@@ -147,26 +149,26 @@ st.write(f'Data for {timeperiod_start.date()} through {timeperiod_end.date()}')
 station_col1, station_col2, station_col3 = st.columns(3)
 
 with station_col1:
-    borough_list = np.sort(station_info_df['START_STATION_NAME'].unique())
+    borough_list = np.sort(station_info_df['borough'].unique())
     borough = st.selectbox(
-        label='Select Start Station Name',
+        label='Select Borough',
         options=borough_list
     )      
 with station_col2:
     neighborhood_list = np.sort(
         station_info_df \
-            .loc[station_info_df['START_STATION_NAME']==borough]['END_STATION_NAME'].unique()
+            .loc[station_info_df['borough']==borough]['neighborhood'].unique()
     )
     neighborhood = st.selectbox(
-        label='Select end_station_name',
+        label='Select Neighborhood',
         options=neighborhood_list
     )      
 with station_col3:
     station_list = np.sort(
         station_info_df \
-            .loc[(station_info_df['START_STATION_NAME']==borough) \
-                & (station_info_df['END_STATION_NAME']==neighborhood)] \
-            ['START_STATION_NAME'].unique()
+            .loc[(station_info_df['borough']==borough) \
+                & (station_info_df['neighborhood']==neighborhood)] \
+            ['station_name'].unique()
     )
     station = st.selectbox(
         label='Select Station',
@@ -180,9 +182,7 @@ main_col1, main_col2 = st.columns(2)
 with main_col2:
     
     num_rides_by_hour_query = generate_num_rides_by_hour_query(station)
-    st.dataframe(num_rides_by_hour_query)
     num_rides_by_hour_df = run_query(num_rides_by_hour_query)
-    st.dataframe(num_rides_by_hour_df)
     '''num_rides_by_hour_hist = go.Figure(
         go.Bar(
             x=pd.to_datetime(num_rides_by_hour_df['hour'], format='%H').dt.time, 
