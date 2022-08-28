@@ -27,12 +27,12 @@ conn = init_connection()
 st.title('NYC Citibike Station Explorer')
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
-def run_query(query):
+def run_query1(query):
     with conn.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from trips limit 10;")
+rows = run_query1("SELECT * from trips limit 10;")
 
 station_info_query = """
     SELECT 
@@ -131,15 +131,17 @@ for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
     
 # Uses st.cache to only rerun when the query changes or after 15 min.
-'''@st.cache(ttl=900)
+cursor = conn.cursor()
+@st.cache(ttl=900)
 def run_query(query):
     df = (
-        client.query(query)
+        cursor.execute(query)
         .result()
         .to_dataframe()
     )
     return df
-'''
+
+
 
 ## INITIAL DATA LOAD ##
 
