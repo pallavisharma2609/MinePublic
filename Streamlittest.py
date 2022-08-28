@@ -30,7 +30,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from trips;")
+rows = run_query("SELECT * from trips limit 10;")
 
 # Print results.
 for row in rows:
