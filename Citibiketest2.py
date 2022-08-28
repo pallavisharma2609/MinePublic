@@ -147,7 +147,7 @@ def run_query(query):
 
 ## INITIAL DATA LOAD ##
 
-station_info_df = run_query(station_info_query)
+station_info_df = run_query1(station_info_query)
 print(station_info_df)
 timeperiod_df = run_query(timeperiod_query)
 
