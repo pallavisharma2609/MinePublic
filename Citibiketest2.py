@@ -28,9 +28,9 @@ st.title('NYC Citibike Station Explorer')
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+    df = pd.read_sql_query(query,conn)
+    
+    return df
 
 rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
