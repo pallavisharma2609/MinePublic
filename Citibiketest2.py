@@ -185,37 +185,6 @@ with station_col3:
 
 main_col1, main_col2 = st.columns(2)
 
-with main_col1:
-
-    # collect display stats
-    avg_trips_per_day_query = generate_avg_trips_query(station)
-    avg_trips_per_day_df = run_query(avg_trips_per_day_query)
-    avg_trips_per_day = avg_trips_per_day_df.max()[0]
-
-    avg_trip_length_query = generate_avg_trip_length_query(station)
-    avg_trip_length_df = run_query(avg_trip_length_query)
-    avg_trip_length = avg_trip_length_df.max()[0]
-
-    st.metric(label='Completed Trips', value=f'{int(np.round(avg_trips_per_day, 0))} per day (avg.)')
-    st.metric(label='Average Trip Length', value=f'{np.round(avg_trip_length, 1)} minutes' )
-
-    top_destinations_query = generate_top_destinations_query(station)
-    top_destinations_df = run_query(top_destinations_query)
-    top_destinations_df = top_destinations_df.rename(columns={
-            'end_station_name':'Station Name', 
-            'num_rides':'# Trips', 
-            'pct_total_rides': '% of Total Trips' ,
-            'avg_trip_length': 'Avg. Trip Length (minutes)'
-            })
-
-    st.write(f'Top Destinations for {station}')
-    st.table(top_destinations_df.head(5) \
-        .style.format({
-            '% of Total Trips' : '{:.1%}',
-            'Avg. Trip Length (minutes)': '{:.1f}'
-            })
-    )
-
 with main_col2:
     
     num_rides_by_hour_query = generate_num_rides_by_hour_query(station)
@@ -236,8 +205,7 @@ with main_col2:
         )
     )'''
 
-    '''st.plotly_chart(num_rides_by_hour_hist)'''
-    # Print results.
-  st.dataframe(num_rides_by_hour_df)
+    #st.plotly_chart(num_rides_by_hour_hist)
+    st.dataframe(num_rides_by_hour_df)
 
 # To Do organize queries, add better search to the station finder
