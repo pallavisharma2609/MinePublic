@@ -32,7 +32,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query1("SELECT * from trips limit 10;")
+rows = run_query("SELECT * from trips limit 10;")
 
 station_info_query = """
     SELECT 
