@@ -27,7 +27,7 @@ conn = init_connection()
 st.title('NYC Citibike Station Explorer')
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
-def run_query1(query):
+def run_query(query):
     with conn.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
@@ -131,15 +131,7 @@ for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
     
 # Uses st.cache to only rerun when the query changes or after 15 min.
-cursor = conn.cursor()
-@st.cache(ttl=900)
-def run_query(query):
-    df = (
-        run_query1(query)
-        .result()
-        .to_dataframe()
-    )
-    return df
+
 
 
 
@@ -147,7 +139,7 @@ def run_query(query):
 
 ## INITIAL DATA LOAD ##
 
-station_info_df = run_query1(station_info_query)
+station_info_df = run_query(station_info_query)
 print(station_info_df)
 timeperiod_df = run_query(timeperiod_query)
 
