@@ -139,14 +139,14 @@ for row in rows:
 
 
 ## INITIAL DATA LOAD ##
-
-station_info_df = run_query(station_info_query)
+ 
+station_info_df = pd.read_sql_query(station_info_query,conn)
 st.dataframe(station_info_df)
-timeperiod_df = run_query(timeperiod_query)
-
+timeperiod_df = pd.read_sql_query(timeperiod_query,conn)
+st.dataframe(timeperiod_df)
 ### UI CODE ###
 
-st.title('NYC Citibike Station Explorer')
+st.title('NYC Citibike Station Explorer my')
 timeperiod_start = timeperiod_df.iloc[0][0]
 timeperiod_end = timeperiod_df.iloc[0][1]
 timeperiod_num_days= (timeperiod_end.date() - timeperiod_start.date()).days
