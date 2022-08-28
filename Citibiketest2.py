@@ -8,6 +8,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
+import altair as alt
 
 
 
@@ -205,5 +206,8 @@ with main_col2:
 
     #st.plotly_chart(num_rides_by_hour_hist)
     st.dataframe(num_rides_by_hour_df)
+    st.altair_chart(alt.Chart(num_rides_by_hour_df, height=500, width=500)
+        .mark_circle(color='#0068c9', opacity=0.5)
+        .encode(x='x:Q', y='y:Q'))
 
 # To Do organize queries, add better search to the station finder
