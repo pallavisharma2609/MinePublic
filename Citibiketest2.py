@@ -166,7 +166,7 @@ with station_col3:
         station_info_df \
             .loc[(station_info_df['START_STATION_NAME']==borough) \
                 & (station_info_df['END_STATION_NAME']==neighborhood)] \
-            ['station_name'].unique()
+            ['START_STATION_NAME'].unique()
     )
     station = st.selectbox(
         label='Select Station',
