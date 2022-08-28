@@ -147,7 +147,7 @@ st.write(f'Data for {timeperiod_start.date()} through {timeperiod_end.date()}')
 station_col1, station_col2, station_col3 = st.columns(3)
 
 with station_col1:
-    borough_list = np.sort(station_info_df['start_station_name'].unique())
+    borough_list = np.sort(station_info_df['START_STATION_NAME'].unique())
     borough = st.selectbox(
         label='Select Start Station Name',
         options=borough_list
@@ -155,7 +155,7 @@ with station_col1:
 with station_col2:
     neighborhood_list = np.sort(
         station_info_df \
-            .loc[station_info_df['start_station_name']==borough]['end_station_name'].unique()
+            .loc[station_info_df['START_STATION_NAME']==borough]['END_STATION_NAME'].unique()
     )
     neighborhood = st.selectbox(
         label='Select end_station_name',
@@ -164,8 +164,8 @@ with station_col2:
 with station_col3:
     station_list = np.sort(
         station_info_df \
-            .loc[(station_info_df['start_station_name']==borough) \
-                & (station_info_df['end_station_name']==neighborhood)] \
+            .loc[(station_info_df['START_STATION_NAME']==borough) \
+                & (station_info_df['END_STATION_NAME']==neighborhood)] \
             ['station_name'].unique()
     )
     station = st.selectbox(
