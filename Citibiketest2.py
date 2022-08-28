@@ -180,7 +180,9 @@ main_col1, main_col2 = st.columns(2)
 with main_col2:
     
     num_rides_by_hour_query = generate_num_rides_by_hour_query(station)
+    st.dataframe(num_rides_by_hour_query)
     num_rides_by_hour_df = run_query(num_rides_by_hour_query)
+    st.dataframe(num_rides_by_hour_df)
     '''num_rides_by_hour_hist = go.Figure(
         go.Bar(
             x=pd.to_datetime(num_rides_by_hour_df['hour'], format='%H').dt.time, 
