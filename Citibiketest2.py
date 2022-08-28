@@ -8,8 +8,9 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
+import folium
+from streamlit_folium import folium_static
+import base64
 
 
 # Initialize connection.
