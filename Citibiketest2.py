@@ -123,7 +123,7 @@ def generate_num_rides_by_hour_query(station_name):
         and end_station_name is not null
         group by 1
         )
-        order by 1
+        order by 1 LIMIT 10
     '''
     return query
 
