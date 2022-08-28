@@ -134,8 +134,11 @@ for row in rows:
 cursor = conn.cursor()
 @st.cache(ttl=900)
 def run_query(query):
-    df = run_query1(query)
-      
+    df = (
+        run_query1(query)
+        .result()
+        .to_dataframe()
+    )
     return df
 
 
@@ -145,6 +148,7 @@ def run_query(query):
 ## INITIAL DATA LOAD ##
 
 station_info_df = run_query(station_info_query)
+print(station_info_df)
 timeperiod_df = run_query(timeperiod_query)
 
 ### UI CODE ###
@@ -198,7 +202,6 @@ with main_col2:
             y=num_rides_by_hour_df['daily_avg']
         )
     )
-
     num_rides_by_hour_hist.update_layout(
         title='Hourly Ride Distribution',
         yaxis_title='# Trips (daily avg.)',
