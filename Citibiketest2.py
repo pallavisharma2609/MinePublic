@@ -33,7 +33,8 @@ def run_query(query):
         return cur.fetchall()
 
 rows = run_query("SELECT * from trips limit 10;")
-
+df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
+print(df_pal)
 station_info_query = """
     SELECT 
         *
