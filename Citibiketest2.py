@@ -128,15 +128,9 @@ def generate_num_rides_by_hour_query(station_name):
     return query
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+
     
 # Uses st.cache to only rerun when the query changes or after 15 min.
-
-
-
-
-
 
 ## INITIAL DATA LOAD ##
  
