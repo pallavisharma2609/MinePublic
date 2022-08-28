@@ -220,7 +220,7 @@ with main_col2:
     
     num_rides_by_hour_query = generate_num_rides_by_hour_query(station)
     num_rides_by_hour_df = run_query(num_rides_by_hour_query)
-    num_rides_by_hour_hist = go.Figure(
+    '''num_rides_by_hour_hist = go.Figure(
         go.Bar(
             x=pd.to_datetime(num_rides_by_hour_df['hour'], format='%H').dt.time, 
             y=num_rides_by_hour_df['daily_avg']
@@ -234,8 +234,10 @@ with main_col2:
         title_font=dict(
             size=24
         )
-    )
+    )'''
 
-    st.plotly_chart(num_rides_by_hour_hist)
+    '''st.plotly_chart(num_rides_by_hour_hist)'''
+    # Print results.
+  st.dataframe(num_rides_by_hour_df)
 
 # To Do organize queries, add better search to the station finder
