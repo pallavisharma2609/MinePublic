@@ -36,9 +36,7 @@ rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 st.dataframe(df_pal)
 station_info_query = """
-    SELECT 
-        *
-    FROM  trips limit 10000;
+   select distinct start_station_name from trips limit 10000;
 """
 
 timeperiod_query = """
