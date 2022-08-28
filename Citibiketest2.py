@@ -36,7 +36,7 @@ rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 st.dataframe(df_pal)
 station_info_query = """
-   select distinct start_station_name from trips limit 10000;
+   select distinct start_station_name,end_station_name from trips limit 10000;
 """
 
 timeperiod_query = """
@@ -147,25 +147,25 @@ st.write(f'Data for {timeperiod_start.date()} through {timeperiod_end.date()}')
 station_col1, station_col2, station_col3 = st.columns(3)
 
 with station_col1:
-    borough_list = np.sort(station_info_df['borough'].unique())
+    borough_list = np.sort(station_info_df['start_station_name'].unique())
     borough = st.selectbox(
-        label='Select Borough',
+        label='Select Start Station Name',
         options=borough_list
     )      
 with station_col2:
     neighborhood_list = np.sort(
         station_info_df \
-            .loc[station_info_df['borough']==borough]['neighborhood'].unique()
+            .loc[station_info_df['start_station_name']==borough]['end_station_name'].unique()
     )
     neighborhood = st.selectbox(
-        label='Select Neighborhood',
+        label='Select end_station_name',
         options=neighborhood_list
     )      
 with station_col3:
     station_list = np.sort(
         station_info_df \
-            .loc[(station_info_df['borough']==borough) \
-                & (station_info_df['neighborhood']==neighborhood)] \
+            .loc[(station_info_df['start_station_name']==borough) \
+                & (station_info_df['end_station_name']==neighborhood)] \
             ['station_name'].unique()
     )
     station = st.selectbox(
