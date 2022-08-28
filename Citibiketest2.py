@@ -10,7 +10,10 @@ import pandas as pd
 import numpy as np
 import altair as alt
 
-
+"""
+# Welcome to Snowflake Streamlit!
+  THINK BIG :heart:
+"""
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
