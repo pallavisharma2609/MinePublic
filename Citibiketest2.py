@@ -12,7 +12,7 @@ import altair as alt
 
 """
 # Welcome to Snowflake Streamlit!
-  THINK BIG :heart:
+      THINK BIG :heart:
 """
 
 # Initialize connection.
@@ -134,12 +134,11 @@ for row in rows:
 cursor = conn.cursor()
 @st.cache(ttl=900)
 def run_query(query):
-    df = (
-        cursor.execute(query)
-        .result()
-        .to_dataframe()
-    )
+    df = cursor.execute(query)
+      
     return df
+
+
 
 
 
