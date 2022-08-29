@@ -278,6 +278,6 @@ def main():
         " Use this guide for setup [Snowflake Quickstarts](https://quickstarts.snowflake.com/guide/getting_started_with_snowflake/index.html?index=..%2F..index#0)"
     )
 
-if __name__ == "__main__":
+    
     main()
     st.snow()
