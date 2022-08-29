@@ -25,6 +25,12 @@ import graphviz as graphviz
 #annoated text
 from annotated_text import annotated_text as atext
 
+
+@st.experimental_singleton
+def init_connection():
+    return snowflake.connector.connect(**st.secrets["snowflake"])
+
+conn = init_connection()
 radiolist = {
     "Query": "query",
     "Time Travel & Cloning": "timetravel",
@@ -65,23 +71,10 @@ def exec_sql(sess, query):
 
 
 
-def create_session():
-    with open('creds.json') as f:
-        cp = json.load(f)
-    conn = snowflake.connector.connect(
-                    user=cp["user"],
-                    password=cp["password"],
-                    account=cp["account"],
-                    warehouse=cp["warehouse"],
-                    database=cp["database"],
-                    role=cp["role"],
-                    schema=cp["schema"]
-                    )
-
-    return conn
 
 
-curr_sess = create_session()
+
+curr_sess = conn
 
 def query():
     global curr_sess
