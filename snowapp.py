@@ -258,7 +258,7 @@ def timetravel():
 
 
 def main():
-    
+    global curr_sess
     st.set_page_config(page_title='Awesome Snowflake', layout="wide")
     st.sidebar.title("Navigation")
     selection = st.sidebar.radio("Go to", list(radiolist.keys()))
