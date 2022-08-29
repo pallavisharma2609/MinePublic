@@ -27,10 +27,10 @@ from annotated_text import annotated_text as atext
 
 
 @st.experimental_singleton
-def init_connection():
+def init_connection1():
     return snowflake.connector.connect(**st.secrets["snowflake"])
 
-conn = init_connection()
+conn = init_connection1()
 radiolist = {
     "Query": "query",
     "Time Travel & Cloning": "timetravel",
@@ -258,7 +258,7 @@ def timetravel():
 
 
 def main():
-    global curr_sess
+    global conn
     st.set_page_config(page_title='Awesome Snowflake', layout="wide")
     st.sidebar.title("Navigation")
     selection = st.sidebar.radio("Go to", list(radiolist.keys()))
