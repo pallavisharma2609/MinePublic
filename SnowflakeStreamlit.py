@@ -65,8 +65,8 @@ graph = figure(title = "Bokeh Vertical Bar Graph")
 width = 0.5
 
 # plotting the graph
-graph.vbar(df1.YEAR,
-top = df1.FEMALE,
+graph.vbar(months_choice,
+top = numberoftrips,
 width = width)
 
 # displaying the model
