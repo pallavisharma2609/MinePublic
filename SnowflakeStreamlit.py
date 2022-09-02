@@ -14,6 +14,7 @@ from bokeh.models import Range1d
 from bokeh.models import HoverTool
 from bokeh.io import curdoc
 from bokeh.themes import built_in_themes
+from bokeh.palettes import Spectral6
 
 
 """
@@ -92,7 +93,7 @@ st.bokeh_chart(graph, use_container_width=True)
 
 # file to save the model
 #output_file("gfg.html")
-output_file("dark_minimal.html")
+output_file("colormapped_bars.html")
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph2 = figure(title = "Number of Bikes per Month")
@@ -104,7 +105,7 @@ width1 = 0.5
 # plotting the graph
 graph2.vbar(months,
 top = numberofbikes,
-width = width1)
+width = width,color='color')
 graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 # displaying the model
 #st.show(graph)
