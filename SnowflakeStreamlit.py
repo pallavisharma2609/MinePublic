@@ -4,7 +4,6 @@ Here's our first attempt at using data to create a table:
 """
 
 
-from turtle import color
 import streamlit as st
 import snowflake.connector
 import pandas as pd
