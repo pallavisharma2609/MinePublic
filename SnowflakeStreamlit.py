@@ -15,6 +15,7 @@ from bokeh.models import HoverTool
 from bokeh.io import curdoc
 from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
+from bokeh.models import ColumnDataSource
 
 
 """
@@ -97,7 +98,7 @@ output_file("colormapped_bars.html")
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph2 = figure(title = "Number of Bikes per Month")
-color=Spectral6
+#color=Spectral6
 curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
 width1 = 0.5
@@ -105,10 +106,28 @@ width1 = 0.5
 # plotting the graph
 graph2.vbar(months,
 top = numberofbikes,
-width = width,color='color')
+width = width)
 graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 # displaying the model
 #st.show(graph)
 #st.title('Number of Trips per Month')
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
+
+output_file("colormapped_bars.html")
+
+fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
+counts = [5, 3, 4, 2, 4, 6]
+
+source = ColumnDataSource(data=dict(fruits=fruits, counts=counts, color=Spectral6))
+
+p = figure(x_range=fruits, y_range=(0,9), height=250, title="Fruit counts",
+           toolbar_location=None, tools="")
+
+p.vbar(x='fruits', top='counts', width=0.9, color='color', legend_field="fruits", source=source)
+
+p.xgrid.grid_line_color = None
+p.legend.orientation = "horizontal"
+p.legend.location = "top_center"
+
+st.bokeh_chart(p)
