@@ -43,8 +43,9 @@ source = df1
 # importing the modules
 
 
-
-years = df1["YEAR"]
+year_choice ='2018'
+months_choice='13'
+years = df1["YEAR"].drop_duplicates()
 year_choice = st.sidebar.selectbox('Select Year', years) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
 months_choice = st.sidebar.selectbox('Select Month', months)
