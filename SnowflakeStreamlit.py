@@ -106,7 +106,7 @@ curdoc().theme = 'dark_minimal'
 width1 = 0.5
 #graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
-graph2.line(months,
+graph2.vbar(months,
 top = numberofbikes,
 width = width,color=Spectral6)
 #p = figure(x_axis_type="datetime")
