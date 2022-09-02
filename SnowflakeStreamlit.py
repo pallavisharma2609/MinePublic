@@ -33,22 +33,22 @@ def run_query(query):
     return df
 
 rows = run_query("SELECT * from trips limit 10;")
-df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
-st.dataframe(df_pal)
+#df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
+#st.dataframe(df_pal)
 
-df1=pd.read_sql_query('SELECT * FROM USAGE_BY_MONTH_YR',conn)
+df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 
-source = df1
+#source = df1
 
 # importing the modules
 
 
-year_choice ='2018'
-months_choice='13'
+#year_choice ='2018'
+#months_choice='13'
 years = df1["YEAR"].drop_duplicates()
-year_choice = st.sidebar.selectbox('Select Year', years) 
+year_choice = st.sidebar.selectbox('Select Year', years, index=15) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
-months_choice = st.sidebar.selectbox('Select Month', months)
+months_choice = st.sidebar.selectbox('Select Month', months, index=15)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == months_choice]
 
 
