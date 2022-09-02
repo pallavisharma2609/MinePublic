@@ -13,6 +13,8 @@ from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
 from bokeh.models import HoverTool
 from bokeh.io import curdoc
+from bokeh.themes import built_in_themes
+
 """
 # Welcome to Snowflake Streamlit!
 """
@@ -58,8 +60,9 @@ numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice]
 
 
 # file to save the model
-output_file("gfg.html")
-	
+#output_file("gfg.html")
+output_file("dark_minimal.html")
+#curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph = figure(title = "Number of Trips per Month")
 
