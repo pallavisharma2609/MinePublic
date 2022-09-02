@@ -36,11 +36,22 @@ rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 st.dataframe(df_pal)
 
-df1=pd.read_sql_query('SELECT * FROM USAGE_BY_GENDER',conn)
+df1=pd.read_sql_query('SELECT * FROM USAGE_BY_MONTH_YR',conn)
 
 source = df1
 
 # importing the modules
+
+
+
+years = df1["YEAR"]
+year_choice = st.sidebar.selectbox('Select Year', years) 
+months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
+months_choice = st.sidebar.selectbox('Select Month', months)
+numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == months_choice]
+
+
+
 
 
 # file to save the model
