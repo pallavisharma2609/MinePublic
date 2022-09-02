@@ -83,7 +83,7 @@ width = 0.5
 # plotting the graph
 graph.vbar(months,
 top = numberoftrips,
-width = width)
+width = width,color=Spectral6)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 # displaying the model
 #st.show(graph)
@@ -119,8 +119,6 @@ graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
 
-df = pd.DataFrame(
-     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-     columns=['lat', 'lon'])
+df33 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],columns=['lat', 'lon'])
 
-st.map(df)
+st.map(df33)
