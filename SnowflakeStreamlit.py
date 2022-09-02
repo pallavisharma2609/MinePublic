@@ -85,7 +85,7 @@ width = 0.5
 # plotting the graph
 graph.vbar(months,
 top = numberoftrips,
-width = width,fill_color = "green")
+width = width,color=Spectral6)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 # displaying the model
 #st.show(graph)
@@ -110,7 +110,7 @@ width1 = 0.5
 # plotting the graph
 graph2.vbar(months,
 top = numberofbikes,
-width = width,color=Spectral6)
+width = width,fill_color = 'salmon')
 #p = figure(x_axis_type="datetime")
 #p.line(x=df.dates, y=df.windspeed, line_width=2)
 #graph2.line(x=months, y=numberofbikes,  line_width=2)
