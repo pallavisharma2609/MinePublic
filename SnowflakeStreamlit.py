@@ -104,7 +104,7 @@ curdoc().theme = 'dark_minimal'
 width1 = 0.5
 #graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
-graph2.vbar(months,
+graph2.line(months,
 top = numberofbikes,
 width = width)
 graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
