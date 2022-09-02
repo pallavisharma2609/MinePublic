@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from bokeh.plotting import figure, output_file, show
+from bokeh.models import Range1d
 """
 # Welcome to Snowflake Streamlit!
 """
@@ -63,7 +64,7 @@ graph = figure(title = "Number of Trips per Month")
 
 # width / thickness of the bars
 width = 0.5
-
+graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
 graph.vbar(months,
 top = numberoftrips,
