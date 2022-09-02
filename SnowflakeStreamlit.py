@@ -103,19 +103,24 @@ graph2 = figure(title="Number of Bikes per Months")
 #color=Spectral6
 curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
-#width1 = 0.5
+width1 = 0.5
 #graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
-#graph2.line(months,
-#top = numberofbikes,
-#width = width)
+graph2.line(months,
+top = numberofbikes,
+width = width,color=Spectral6)
 #p = figure(x_axis_type="datetime")
 #p.line(x=df.dates, y=df.windspeed, line_width=2)
-graph2.line(x=months, y=numberofbikes,  line_width=2)
-#graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
+#graph2.line(x=months, y=numberofbikes,  line_width=2)
+graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 # displaying the model
 #st.show(graph)
 #st.title('Number of Trips per Month')
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
 
+df = pd.DataFrame(
+     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+     columns=['lat', 'lon'])
+
+st.map(df)
