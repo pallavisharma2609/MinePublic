@@ -46,9 +46,9 @@ df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #year_choice ='2018'
 #months_choice='13'
 years = df1["YEAR"].drop_duplicates()
-year_choice = st.sidebar.selectbox('Select Year', years, index=15) 
+year_choice = st.sidebar.selectbox('Select Year', years, 2010) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
-months_choice = st.sidebar.selectbox('Select Month', months, index=15)
+months_choice = st.sidebar.selectbox('Select Month', months, 15)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == months_choice]
 
 
