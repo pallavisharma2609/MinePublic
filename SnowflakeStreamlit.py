@@ -114,20 +114,3 @@ graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
 
-output_file("colormapped_bars.html")
-
-#fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
-#counts = [5, 3, 4, 2, 4, 6]
-
-#source = ColumnDataSource()
-
-p = figure( height=250, title="Fruit counts",
-           toolbar_location=None, tools="")
-
-p.vbar( months,top = numberofbikes,width=0.9, color='color', legend_field=months)
-
-p.xgrid.grid_line_color = None
-p.legend.orientation = "horizontal"
-p.legend.location = "top_center"
-
-st.bokeh_chart(p)
