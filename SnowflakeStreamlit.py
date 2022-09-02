@@ -61,9 +61,7 @@ select_month_slider = st.sidebar.select_slider('Use slider to display Month rang
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice]
 numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice]
 
-select_month_range = sorted(months.unique())
 
-select_month_slider = st.sidebar.select_slider('Use slider to display Month range:', options=select_month_range, value=(1,12))
 
 
 
