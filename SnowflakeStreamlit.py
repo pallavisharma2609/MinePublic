@@ -79,5 +79,5 @@ graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 # displaying the model
 #st.show(graph)
 #st.title('Number of Trips per Month')
-st.markdown(f'<h1 style="color:#33ff33;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph, use_container_width=True)
