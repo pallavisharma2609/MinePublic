@@ -98,7 +98,7 @@ st.bokeh_chart(graph, use_container_width=True)
 output_file('output.html')
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
-graph2 = figure(title="Number of Bikes per Month"s)
+graph2 = figure(title="Number of Bikes per Months")
 #graph2= figure(title = "Number of Bikes per Month")
 #color=Spectral6
 curdoc().theme = 'dark_minimal'
