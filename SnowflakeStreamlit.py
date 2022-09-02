@@ -58,9 +58,9 @@ select_month_range = sorted(months.unique())
 
 select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range)
 #months_choice = st.sidebar.selectbox('Select Month', months)
-st.map(select_month_range)
-numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice]
-numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice]
+
+numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_range]
+numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_range]
 
 
 
