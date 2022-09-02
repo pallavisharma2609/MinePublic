@@ -59,4 +59,5 @@ top = df1.FEMALE,
 width = width)
 
 # displaying the model
-st.show(graph)
+#st.show(graph)
+st.bokeh_chart(graph, use_container_width=True)
