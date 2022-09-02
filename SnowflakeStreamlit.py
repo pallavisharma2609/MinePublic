@@ -9,7 +9,7 @@ import snowflake.connector
 import pandas as pd
 import numpy as np
 import altair as alt
-
+from bokeh.plotting import figure, output_file, show
 """
 # Welcome to Snowflake Streamlit!
 # # THINK BIG :heart:
@@ -36,5 +36,27 @@ rows = run_query("SELECT * from trips limit 10;")
 df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 st.dataframe(df_pal)
 
+df1=pd.read_sql_query('SELECT * FROM USAGE_BY_GENDER',conn)
 
-# To Do organize queries, add better search to the station finder
+source = df1
+
+# importing the modules
+
+
+# file to save the model
+output_file("gfg.html")
+	
+# instantiating the figure object
+graph = figure(title = "Bokeh Vertical Bar Graph")
+
+
+# width / thickness of the bars
+width = 5.5
+
+# plotting the graph
+graph.vbar(df1.YEAR,
+top = df1.FEMALE,
+width = width)
+
+# displaying the model
+st.show(graph)
