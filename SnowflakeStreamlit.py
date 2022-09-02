@@ -94,21 +94,24 @@ st.bokeh_chart(graph, use_container_width=True)
 
 # file to save the model
 #output_file("gfg.html")
-output_file("colormapped_bars.html")
+#output_file("colormapped_bars.html")
+output_file('output.html')
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
-graph2 = figure(title="Number of Bikes per Month", x_axis_label=numberofbikes, y_axis_label=months)
+graph2 = figure(title="Number of Bikes per Month"s)
 #graph2= figure(title = "Number of Bikes per Month")
 #color=Spectral6
 curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
-width1 = 0.5
+#width1 = 0.5
 #graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
 #graph2.line(months,
 #top = numberofbikes,
 #width = width)
-graph2.line(numberofbikes, months,  line_width=2)
+#p = figure(x_axis_type="datetime")
+#p.line(x=df.dates, y=df.windspeed, line_width=2)
+graph2.line(x=numberofbikes, y=months,  line_width=2)
 #graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 # displaying the model
 #st.show(graph)
