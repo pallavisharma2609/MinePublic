@@ -12,6 +12,7 @@ import altair as alt
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
 from bokeh.models import HoverTool
+from bokeh.io import curdoc
 """
 # Welcome to Snowflake Streamlit!
 """
@@ -62,7 +63,7 @@ output_file("gfg.html")
 # instantiating the figure object
 graph = figure(title = "Number of Trips per Month")
 
-
+curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
 width = 0.5
 #graph.y_range = Range1d(150000, 2053052)
