@@ -70,7 +70,7 @@ width = 0.5
 graph.vbar(months,
 top = numberoftrips,
 width = width)
-graph.add_tools(HoverTool(tooltips=[("Number of Trips",numberoftrips )]))
+graph.add_tools(HoverTool(tooltips=[("Number of Trips","@numberoftrips")]))
 # displaying the model
 #st.show(graph)
 st.bokeh_chart(graph, use_container_width=True)
