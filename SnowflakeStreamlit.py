@@ -29,7 +29,7 @@ conn = init_connection()
 
 # Perform query.
 #st.title('NYC Citibike Statistics')
-st.markdown(f'<h1 style="color:#F0FFFF;font-size:30px;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#33ff33;font-size:30px;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
