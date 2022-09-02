@@ -27,9 +27,9 @@ def init_connection():
 
 conn = init_connection()
 
-# Perform query.
+# Perform query.style='text-align: center;
 #st.title('NYC Citibike Statistics')
-st.markdown(f'<h1 style="color:#33ff33;font-size:30px;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="color:#33ff33;font-size:30px;text-align:center;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
