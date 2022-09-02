@@ -4,6 +4,7 @@ Here's our first attempt at using data to create a table:
 """
 
 
+from turtle import color
 import streamlit as st
 import snowflake.connector
 import pandas as pd
@@ -79,12 +80,12 @@ graph = figure(title = "Number of Trips per Month")
 curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
 width = 0.5
-fill_color = [ "blue", "green"]
+#fill_color = [ "blue", "green"]
 #graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
 graph.vbar(months,
 top = numberoftrips,
-width = width,fill_color = fill_color)
+width = width,fill_color = "green")
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 # displaying the model
 #st.show(graph)
