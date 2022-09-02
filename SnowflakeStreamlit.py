@@ -119,12 +119,12 @@ output_file("colormapped_bars.html")
 #fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
 #counts = [5, 3, 4, 2, 4, 6]
 
-source = ColumnDataSource(data=dict(fruits=months, counts=numberofbikes, color=Spectral6))
+#source = ColumnDataSource()
 
 p = figure( height=250, title="Fruit counts",
            toolbar_location=None, tools="")
 
-p.vbar( width=0.9, color='color', legend_field=months, source=source)
+p.vbar( months,top = numberofbikes,width=0.9, color='color', legend_field=months)
 
 p.xgrid.grid_line_color = None
 p.legend.orientation = "horizontal"
