@@ -64,7 +64,7 @@ graph = figure(title = "Number of Trips per Month")
 
 # width / thickness of the bars
 width = 0.5
-graph.y_range = Range1d(150000, 2053052)
+#graph.y_range = Range1d(150000, 2053052)
 # plotting the graph
 graph.vbar(months,
 top = numberoftrips,
