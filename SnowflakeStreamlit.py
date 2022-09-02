@@ -121,7 +121,7 @@ output_file("colormapped_bars.html")
 
 source = ColumnDataSource(data=dict(fruits=months, counts=numberofbikes, color=Spectral6))
 
-p = figure(x_range=months, y_range=numberofbikes, height=250, title="Fruit counts",
+p = figure( height=250, title="Fruit counts",
            toolbar_location=None, tools="")
 
 p.vbar( width=0.9, color='color', legend_field="months", source=source)
