@@ -111,7 +111,7 @@ curdoc().theme = 'dark_minimal'
 #width = width)
 #p = figure(x_axis_type="datetime")
 #p.line(x=df.dates, y=df.windspeed, line_width=2)
-graph2.line(x=numberofbikes, y=months,  line_width=2)
+graph2.line(x=months, y=numberofbikes,  line_width=2)
 #graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 # displaying the model
 #st.show(graph)
