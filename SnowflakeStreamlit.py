@@ -97,7 +97,7 @@ output_file("colormapped_bars.html")
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph2 = figure(title = "Number of Bikes per Month")
-
+color=Spectral6
 curdoc().theme = 'dark_minimal'
 # width / thickness of the bars
 width1 = 0.5
