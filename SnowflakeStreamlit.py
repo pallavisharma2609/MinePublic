@@ -12,7 +12,6 @@ import altair as alt
 from bokeh.plotting import figure, output_file, show
 """
 # Welcome to Snowflake Streamlit!
-# # THINK BIG :heart:
 """
 
 # Initialize connection.
@@ -32,7 +31,7 @@ def run_query(query):
     
     return df
 
-rows = run_query("SELECT * from trips limit 10;")
+#rows = run_query("SELECT * from trips limit 10;")
 #df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
 #st.dataframe(df_pal)
 
@@ -59,7 +58,7 @@ numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice]
 output_file("gfg.html")
 	
 # instantiating the figure object
-graph = figure(title = "Bokeh Vertical Bar Graph")
+graph = figure(title = "Number of Trips per Month")
 
 
 # width / thickness of the bars
