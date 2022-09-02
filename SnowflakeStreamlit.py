@@ -11,6 +11,7 @@ import numpy as np
 import altair as alt
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
+from bokeh.models import HoverTool
 """
 # Welcome to Snowflake Streamlit!
 """
@@ -69,7 +70,7 @@ width = 0.5
 graph.vbar(months,
 top = numberoftrips,
 width = width)
-
+graph.add_tools(HoverTool(tooltips=[("numberoftrips", "@numberoftrips")]))
 # displaying the model
 #st.show(graph)
 st.bokeh_chart(graph, use_container_width=True)
