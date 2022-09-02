@@ -124,7 +124,7 @@ source = ColumnDataSource(data=dict(fruits=months, counts=numberofbikes, color=S
 p = figure( height=250, title="Fruit counts",
            toolbar_location=None, tools="")
 
-p.vbar( width=0.9, color='color', legend_field="months", source=source)
+p.vbar( width=0.9, color='color', legend_field=months, source=source)
 
 p.xgrid.grid_line_color = None
 p.legend.orientation = "horizontal"
