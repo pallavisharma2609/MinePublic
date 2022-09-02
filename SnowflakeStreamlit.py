@@ -77,4 +77,5 @@ width = width)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 # displaying the model
 #st.show(graph)
+st.title('Number of Trips per Month')
 st.bokeh_chart(graph, use_container_width=True)
