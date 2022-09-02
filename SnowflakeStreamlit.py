@@ -51,7 +51,7 @@ graph = figure(title = "Bokeh Vertical Bar Graph")
 
 
 # width / thickness of the bars
-width = 5.5
+width = 0.5
 
 # plotting the graph
 graph.vbar(df1.YEAR,
