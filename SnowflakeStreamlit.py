@@ -46,10 +46,10 @@ df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #year_choice ='2018'
 #months_choice='13'
 years = df1["YEAR"].drop_duplicates()
-year_choice = st.sidebar.selectbox('Select Year', years, 2010) 
+year_choice = st.sidebar.selectbox('Select Year', years) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
-months_choice = st.sidebar.selectbox('Select Month', months, 15)
-numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == months_choice]
+#months_choice = st.sidebar.selectbox('Select Month', months)
+numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice]
 
 
 
@@ -66,7 +66,7 @@ graph = figure(title = "Bokeh Vertical Bar Graph")
 width = 0.5
 
 # plotting the graph
-graph.vbar(months_choice,
+graph.vbar(months,
 top = numberoftrips,
 width = width)
 
