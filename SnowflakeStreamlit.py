@@ -88,3 +88,26 @@ graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 #st.title('Number of Trips per Month')
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph, use_container_width=True)
+
+
+# file to save the model
+#output_file("gfg.html")
+output_file("dark_minimal.html")
+#curdoc().theme = 'caliber'	
+# instantiating the figure object
+graph2 = figure(title = "Number of Bikes per Month")
+
+curdoc().theme = 'dark_minimal'
+# width / thickness of the bars
+width1 = 0.5
+#graph.y_range = Range1d(150000, 2053052)
+# plotting the graph
+graph2.vbar(months,
+top = numberofbikes,
+width = width1)
+graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
+# displaying the model
+#st.show(graph)
+#st.title('Number of Trips per Month')
+st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
+st.bokeh_chart(graph2, use_container_width=True)
