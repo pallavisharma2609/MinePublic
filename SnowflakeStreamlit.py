@@ -18,11 +18,7 @@ from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
 import time
 
-my_bar = st.progress(0)
 
-for percent_complete in range(100):
-     time.sleep(0.1)
-     my_bar.progress(percent_complete + 1)
 
 """
 # Welcome to Snowflake Streamlit!
@@ -64,7 +60,7 @@ year_choice = st.sidebar.selectbox('Select Year', years)
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
 select_month_range = sorted(months.unique())
 
-select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=11)
+select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=7)
 #months_choice = st.sidebar.selectbox('Select Month', months)
 st.write('Selected month is till', select_month_slider)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
