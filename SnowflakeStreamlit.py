@@ -119,4 +119,4 @@ graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 #st.title('Number of Trips per Month')
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
-
+st.snow()
