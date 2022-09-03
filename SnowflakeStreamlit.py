@@ -123,5 +123,4 @@ st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Mo
 st.bokeh_chart(graph2, use_container_width=True)
 
 
-do_something()
 st.snow()
