@@ -16,7 +16,13 @@ from bokeh.io import curdoc
 from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
+import time
 
+my_bar = st.progress(0)
+
+for percent_complete in range(100):
+     time.sleep(0.1)
+     my_bar.progress(percent_complete + 1)
 
 """
 # Welcome to Snowflake Streamlit!
@@ -26,8 +32,7 @@ from bokeh.models import ColumnDataSource
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    st.snow()
-    return snowflake.connector.connect(**st.secrets["snowflake"])
+       return snowflake.connector.connect(**st.secrets["snowflake"])
 
 conn = init_connection()
 
@@ -122,4 +127,5 @@ st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Mo
 st.bokeh_chart(graph2, use_container_width=True)
 
 
-
+do_something()
+st.snow()
