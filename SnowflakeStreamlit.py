@@ -17,7 +17,7 @@ from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
 
-st.snow()
+
 """
 # Welcome to Snowflake Streamlit!
 """
@@ -26,6 +26,7 @@ st.snow()
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
+    st.snow()
     return snowflake.connector.connect(**st.secrets["snowflake"])
 
 conn = init_connection()
