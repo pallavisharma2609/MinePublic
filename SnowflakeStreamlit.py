@@ -20,10 +20,8 @@ import time
 
 
 
-"""
-# Welcome to Snowflake Streamlit!
-"""
-st.markdown(f'<h1 style="color:#02A4D3;font-size:30px;text-align:center;">{"Welcome to Snowflake Streamlit!"}</h1>', unsafe_allow_html=True)
+
+st.markdown(f'<h1 style="color:#02A4D3;font-size:40px;text-align:center;">{"Welcome to Snowflake Streamlit!"}</h1>', unsafe_allow_html=True)
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
