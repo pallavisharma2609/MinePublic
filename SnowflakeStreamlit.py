@@ -56,11 +56,11 @@ df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #year_choice ='2018'
 #months_choice='13'
 years = df1["YEAR"].drop_duplicates()
-year_choice = st.sidebar.selectbox('Select Year', years) 
+year_choice = st.sidebar.selectbox('Select Year', years,value=2014) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
 select_month_range = sorted(months.unique())
 
-select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=7)
+select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=6)
 #months_choice = st.sidebar.selectbox('Select Month', months)
 st.write('Selected month is till', select_month_slider)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
