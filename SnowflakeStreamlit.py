@@ -64,7 +64,8 @@ select_month_slider = st.sidebar.select_slider('Use slider to display Month rang
 st.write('I have selected Months till ', select_month_slider, ' of Year ',year_choice)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
-
+countfemale = df1['COUNT_FEMALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
+countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 
 
 output_file("dark_minimal.html")
@@ -91,4 +92,19 @@ graph1.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 #st.bokeh_chart(graph, use_container_width=True)
 st.bokeh_chart(row(graph, graph1))
 
+
+output_file("gfg.html") 
+           
+# instantiating the figure object 
+graph2 = figure(title = "Usage by Gender") 
+  
+ 
+# radius of the glyphs
+radius = 1
+
+# plotting the graph
+graph2.wedge(countfemale, countmale, radius)
+  
+# displaying the graph
+st.bokeh_chart(graph2)
 st.snow()
