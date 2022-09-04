@@ -12,7 +12,8 @@ import altair as alt
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
 from bokeh.models import HoverTool
-from bokeh.io import curdoc,hplot
+from bokeh.io import curdoc
+from bokeh.layouts import row
 from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
@@ -128,19 +129,16 @@ y0 = x
 y1 = [10 - i for i in x]
 y2 = [abs(i - 5) for i in x]
 
-# create a new plot
-s1 = figure(width=250, plot_height=250, title=None)
-s1.circle(x, y0, size=10, color="navy", alpha=0.5)
+# create three plots
+s1 = figure(width=250, height=250, background_fill_color="#fafafa")
+s1.circle(x, y0, size=12, color="#53777a", alpha=0.8)
 
-# create another one
-s2 = figure(width=250, height=250, title=None)
-s2.triangle(x, y1, size=10, color="firebrick", alpha=0.5)
+s2 = figure(width=250, height=250, background_fill_color="#fafafa")
+s2.triangle(x, y1, size=12, color="#c02942", alpha=0.8)
 
-# create and another
-s3 = figure(width=250, height=250, title=None)
-s3.square(x, y2, size=10, color="olive", alpha=0.5)
+s3 = figure(width=250, height=250, background_fill_color="#fafafa")
+s3.square(x, y2, size=12, color="#d95b43", alpha=0.8)
 
-# put all the plots in an HBox
-p = hplot(s1, s2, s3)
-st.bokeh_chart(p)
+# put the results in a row and show
+st.bokeh_chart(row(s1, s2, s3))
 st.snow()
