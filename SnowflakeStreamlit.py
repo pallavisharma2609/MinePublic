@@ -78,7 +78,7 @@ top = numberoftrips,
 width = width)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 
-st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
+#st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
 
 graph1 = figure(title = "Number of Bikes per Months",width=450, height=450)
 
@@ -87,7 +87,7 @@ width = 0.5
 graph1.vbar(months,
 top = numberofbikes,
 width = width,color=Spectral6)
-graph1.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
+graph1.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 #st.bokeh_chart(graph, use_container_width=True)
 st.bokeh_chart(row(graph, graph1))
 
