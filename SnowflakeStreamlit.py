@@ -93,21 +93,5 @@ graph1.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 st.bokeh_chart(row(graph, graph1))
 
 
-output_file("gfg.html") 
-           
-# instantiating the figure object 
-graph2 = figure(title = "Usage by Gender") 
-  
- # starting angle values
-#start_angle = [0, 1.8]
-  
-# ending angle values
-#end_angle = [1.8, 2.5]
-# radius of the glyphs
-#radius = 0.4
-# plotting the graph
-graph2.wedge(countfemale, countmale)
-  
-# displaying the graph
-st.bokeh_chart(graph2)
+
 st.snow()
