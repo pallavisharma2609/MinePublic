@@ -138,7 +138,7 @@ s2 = figure(width=250, height=250, background_fill_color="#fafafa")
 s2.triangle(x, y1, size=12, color="#c02942", alpha=0.8)
 
 # put the results in a row and show
-st.bokeh_chart(row(s1, s2, s3))
+st.bokeh_chart(row(s1, s2))
 
 
 
