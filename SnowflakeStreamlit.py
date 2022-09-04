@@ -69,7 +69,7 @@ numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["
 
 output_file("dark_minimal.html")
 
-graph = figure(title = "Number of Trips per Month",width=450, height=450)
+graph = figure(title = "Number of Trips per Month",width=450, height=350)
 
 width = 0.5
 
@@ -80,7 +80,7 @@ graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 
 #st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
 
-graph1 = figure(title = "Number of Bikes per Months",width=450, height=450)
+graph1 = figure(title = "Number of Bikes per Months",width=450, height=350)
 
 width = 0.5
 
