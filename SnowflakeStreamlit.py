@@ -97,7 +97,7 @@ st.bokeh_chart(graph, use_container_width=True)
 # file to save the model
 #output_file("gfg.html")
 #output_file("colormapped_bars.html")
-output_file('output.html')
+#output_file('output.html')
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph2 = figure(title="Number of Bikes per Months")
