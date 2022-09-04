@@ -67,96 +67,20 @@ numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["
 
 
 
-
-
-
-# file to save the model
-#output_file("gfg.html")
-output_file("dark_minimal.html")
-#curdoc().theme = 'caliber'	
-# instantiating the figure object
-graph = figure(title = "Number of Trips per Month")
-
-curdoc().theme = 'dark_minimal'
-# width / thickness of the bars
-width = 0.5
-#fill_color = [ "blue", "green"]
-#graph.y_range = Range1d(150000, 2053052)
-# plotting the graph
-graph.vbar(months,
-top = numberoftrips,
-width = width,color=Spectral6)
-graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
-# displaying the model
-#st.show(graph)
-#st.title('Number of Trips per Month')
-st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
-st.bokeh_chart(graph, use_container_width=True)
-
-
-# file to save the model
-#output_file("gfg.html")
-#output_file("colormapped_bars.html")
-output_file('output.html')
-#curdoc().theme = 'caliber'	
-# instantiating the figure object
-graph2 = figure(title="Number of Bikes per Months")
-#graph2= figure(title = "Number of Bikes per Month")
-#color=Spectral6
-curdoc().theme = 'dark_minimal'
-# width / thickness of the bars
-width1 = 0.5
-#graph.y_range = Range1d(150000, 2053052)
-# plotting the graph
-graph2.vbar(months,
-top = numberofbikes,
-width = width1)
-#p = figure(x_axis_type="datetime")
-#p.line(x=df.dates, y=df.windspeed, line_width=2)
-#graph2.line(x=months, y=numberofbikes,  line_width=2)
-graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
-# displaying the model
-#st.show(graph)
-#st.title('Number of Trips per Month')
-st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
-st.bokeh_chart(graph2, use_container_width=True)
-
-
-
-output_file("layout.html")
-
-x = list(range(11))
-y0 = x
-y1 = [10 - i for i in x]
-y2 = [abs(i - 5) for i in x]
-
-# create three plots
-s1 = figure(width=250, height=250, background_fill_color="#fafafa")
-s1.circle(x, y0, size=12, color="#53777a", alpha=0.8)
-
-s2 = figure(width=250, height=250, background_fill_color="#fafafa")
-s2.triangle(x, y1, size=12, color="#c02942", alpha=0.8)
-
-# put the results in a row and show
-st.bokeh_chart(row(s1, s2))
-
-
-
-
 output_file("dark_minimal.html")
 
-graph = figure(title = "Number of Trips per Month",width=250, height=250)
+graph = figure(title = "Number of Trips per Month",width=450, height=450)
 
 width = 0.5
 
 graph.vbar(months,
 top = numberoftrips,
-width = width,color=Spectral6)
+width = width)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
 
-graph1 = figure(title = "Number of Bikes per Months",width=250, height=250)
+graph1 = figure(title = "Number of Bikes per Months",width=450, height=450)
 
 width = 0.5
 
