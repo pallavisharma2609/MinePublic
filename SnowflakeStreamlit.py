@@ -17,7 +17,6 @@ from bokeh.layouts import row
 from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
-from bokeh.transform import cumsum
 import time
 
 
@@ -99,11 +98,15 @@ output_file("gfg.html")
 # instantiating the figure object 
 graph2 = figure(title = "Usage by Gender") 
   
- 
+ # starting angle values
+start_angle = [0, 1.8]
+  
+# ending angle values
+end_angle = [1.8, 2.5]
 # radius of the glyphs
 radius = 0.4
 # plotting the graph
-graph2.wedge(countfemale, countmale, radius,start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'))
+graph2.wedge(countfemale, countmale, radius,start_angle, end_angle)
   
 # displaying the graph
 st.bokeh_chart(graph2)
