@@ -97,7 +97,7 @@ st.bokeh_chart(graph, use_container_width=True)
 # file to save the model
 #output_file("gfg.html")
 #output_file("colormapped_bars.html")
-#output_file('output.html')
+output_file('output.html')
 #curdoc().theme = 'caliber'	
 # instantiating the figure object
 graph2 = figure(title="Number of Bikes per Months")
@@ -110,7 +110,7 @@ width1 = 0.5
 # plotting the graph
 graph2.vbar(months,
 top = numberofbikes,
-width = width)
+width = width1)
 #p = figure(x_axis_type="datetime")
 #p.line(x=df.dates, y=df.windspeed, line_width=2)
 #graph2.line(x=months, y=numberofbikes,  line_width=2)
@@ -120,7 +120,7 @@ graph2.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
 #st.title('Number of Trips per Month')
 st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Bikes per Month"}</h1>', unsafe_allow_html=True)
 st.bokeh_chart(graph2, use_container_width=True)
-#st.bokeh_chart(row(graph,graph2))
+
 
 
 output_file("layout.html")
@@ -137,9 +137,34 @@ s1.circle(x, y0, size=12, color="#53777a", alpha=0.8)
 s2 = figure(width=250, height=250, background_fill_color="#fafafa")
 s2.triangle(x, y1, size=12, color="#c02942", alpha=0.8)
 
-s3 = figure(width=250, height=250, background_fill_color="#fafafa")
-s3.square(x, y2, size=12, color="#d95b43", alpha=0.8)
-
 # put the results in a row and show
 st.bokeh_chart(row(s1, s2, s3))
+
+
+
+
+output_file("dark_minimal.html")
+
+graph = figure(title = "Number of Trips per Month",width=250, height=250)
+
+width = 0.5
+
+graph.vbar(months,
+top = numberoftrips,
+width = width,color=Spectral6)
+graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
+
+st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
+
+graph1 = figure(title = "Number of Bikes per Months",width=250, height=250)
+
+width = 0.5
+
+graph1.vbar(months,
+top = numberofbikes,
+width = width,color=Spectral6)
+graph1.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
+#st.bokeh_chart(graph, use_container_width=True)
+st.bokeh_chart(row(graph, graph1))
+
 st.snow()
