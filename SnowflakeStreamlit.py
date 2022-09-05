@@ -60,9 +60,10 @@ bind_socket()
 
 fig = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"),column_widths =[450,450])
 fig.add_trace(
-    go.Bar( x=months, y=numberoftrips),row=1, col=1)
+    go.Bar( x=months, y=numberoftrips,marker=dict(color=[2, 3, 5], coloraxis="coloraxis")),row=1, col=1)
 #Second SubPlot
 fig.add_trace(
-    go.Bar(x=months, y=numberofbikes),row=1, col=2)
-    
+    go.Bar(x=months, y=numberofbikes,marker=dict(color=[4, 5, 6], coloraxis="coloraxis")),row=1, col=2)
+ 
+fig.update_layout(coloraxis=dict(colorscale='Bluered_r'), showlegend=False)   
 st.plotly_chart(fig)
