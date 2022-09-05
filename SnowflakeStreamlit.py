@@ -65,5 +65,5 @@ fig.add_trace(
 fig.add_trace(
     go.Bar(x=months, y=numberofbikes,marker=dict(color=numberofbikes, coloraxis="coloraxis")),row=1, col=2)
  
-fig.update_layout(coloraxis=dict(colorscale='Bluered_r'), showlegend=False)   
+fig.update_layout(coloraxis=dict(colorscale='Bluered'), showlegend=False)   
 st.plotly_chart(fig)
