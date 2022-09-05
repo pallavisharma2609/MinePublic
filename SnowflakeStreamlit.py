@@ -46,7 +46,7 @@ def run_query(query):
 #st.dataframe(df_pal)
 
 df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
-st.dataframe(df1)
+#st.dataframe(df1)
 
 #source = df1
 
@@ -75,7 +75,7 @@ countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] =
 st.write(numberoftrips)
 st.write(numberofbikes)
 
-output_file("dark_minimal.html")
+
 
 graph = figure(title = "Number of Trips per Month",width=450, height=350)
 
@@ -96,6 +96,7 @@ graph1.vbar(months,
 top = numberofbikes,
 width = width,color=Spectral6)
 graph1.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
+output_file("dark_minimal.html")
 #st.bokeh_chart(graph, use_container_width=True)
 st.bokeh_chart(row(graph, graph1))
 
