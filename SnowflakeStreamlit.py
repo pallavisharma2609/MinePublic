@@ -94,10 +94,10 @@ st.bokeh_chart(row(graph, graph1))
 st.snow()
 #fig = make_subplots(rows=1, cols=2)
 
-fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',\
-             title = "Number of Trips per Months",width=450, height=350,row=1, col=1)
-fig2 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',\
-             title = "Number of Bikes per Months",width=450, height=350,row=1, col=2)
+fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
+             title = "Number of Trips per Months",width=450, height=350)
+fig2 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
+             title = "Number of Bikes per Months",width=450, height=350)
 
 st.plotly_chart(fig1)
 st.plotly_chart(fig2)
