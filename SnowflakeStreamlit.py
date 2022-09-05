@@ -9,6 +9,8 @@ import snowflake.connector
 import pandas as pd
 import numpy as np
 import altair as alt
+import plotly.figure_factory as ff
+import plotly.express as px
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
 from bokeh.models import HoverTool
@@ -101,5 +103,8 @@ output_file("dark_minimal.html")
 st.bokeh_chart(row(graph, graph1))
 
 
+fig = px.bar(df1, x=months, y=numberoftrips)
+
 
 st.snow()
+st.plotly_chart(fig, use_container_width=True)
