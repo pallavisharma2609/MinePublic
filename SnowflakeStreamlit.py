@@ -89,4 +89,4 @@ st.plotly_chart(fig2)
 if st.button('Thank you !'):
      st.snow()
 else:
-     st.write('Thank you !')
+     st.write('See you !')
