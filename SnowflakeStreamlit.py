@@ -99,10 +99,10 @@ output_file("dark_minimal.html")
 #st.bokeh_chart(graph, use_container_width=True)
 st.bokeh_chart(row(graph, graph1))
 
-#df2 = [months,numberoftrips]
+df2 = [months,numberoftrips]
 #fig = px.bar(df2, x=months, y=numberoftrips)
 
 
 st.snow()
 #st.plotly_chart(fig, use_container_width=True)
-st.bar_chart( x=months, y=numberoftrips, width=0, height=0, use_container_width=True)
+st.bar_chart( df2,x=months, y=numberoftrips, width=0, height=0, use_container_width=True)
