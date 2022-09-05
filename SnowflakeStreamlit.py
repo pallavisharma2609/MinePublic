@@ -70,26 +70,13 @@ st.plotly_chart(fig)
 
 
 
-
-fig1 = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"))
-
-
-fig1.add_trace(go.Pie(
-     values=[16, 15, 12, 6, 5, 4, 42],
-     labels=["US", "China", "European Union", "Russian Federation",
-             "Brazil", "India", "Rest of World"
-             ],
-     domain=dict(x=[0, 0.5]),
-     name="GHG Emissions"), 
-     row=1, col=1)
-
-fig1.add_trace(go.Pie(
-     values=[27, 11, 25, 8, 1, 3, 25],
-     labels=["US", "China", "European Union", "Russian Federation",
-             "Brazil", "India", "Rest of World"
-             ],
-     domain=dict(x=[0.5, 1.0]),
-     name="CO2 Emissions"),
-    row=1, col=2)
-
+fig1 = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips (Female) per Month", "Number of Trips (Male) per Month"))
+fig1.add_trace(
+    go.Bar( x=months, y=countfemale,marker=dict(color=countfemale, coloraxis="coloraxis")),row=1, col=1)
+#Second SubPlot
+fig1.add_trace(
+    go.Bar(x=months, y=countmale,marker=dict(color=countmale, coloraxis="coloraxis")),row=1, col=2)
+ 
+fig1.update_layout(coloraxis=dict(colorscale='YlGnBl'), showlegend=False)   
 st.plotly_chart(fig1)
+
