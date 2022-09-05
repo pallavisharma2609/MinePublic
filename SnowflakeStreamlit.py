@@ -55,6 +55,7 @@ numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["
 numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 countfemale = df1['COUNT_FEMALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
 countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
+df2 = df1.loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 st.write(numberoftrips)
 st.write(numberofbikes)
 
@@ -89,6 +90,6 @@ st.bokeh_chart(row(graph, graph1))
 
 st.snow()
 
-fig = px.bar(df1, x='MONTH', y='NUMBER_OF_TRIPS',
+fig = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
              height=400)
 st.plotly_chart(fig)
