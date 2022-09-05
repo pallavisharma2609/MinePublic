@@ -102,8 +102,8 @@ output_file("dark_minimal.html")
 #st.bokeh_chart(graph, use_container_width=True)
 st.bokeh_chart(row(graph, graph1))
 
-
-fig = px.bar(df1, x=months, y=numberoftrips)
+df2 = [months,numberoftrips]
+fig = px.bar(df2, x=months, y=numberoftrips)
 
 
 st.snow()
