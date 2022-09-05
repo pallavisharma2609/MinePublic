@@ -9,6 +9,7 @@ import snowflake.connector
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.offline import plot
 from plotly.subplots import make_subplots
 
 
@@ -67,3 +68,29 @@ fig.add_trace(
  
 fig.update_layout(coloraxis=dict(colorscale='Emrld'), showlegend=False)   
 st.plotly_chart(fig)
+
+
+
+
+fig1 = make_subplots(rows=1, cols=2, specs=[[{"type": "pie"}, {"type": "pie"}]])
+
+
+fig1.add_trace(go.Pie(
+     values=[16, 15, 12, 6, 5, 4, 42],
+     labels=["US", "China", "European Union", "Russian Federation",
+             "Brazil", "India", "Rest of World"
+             ],
+     domain=dict(x=[0, 0.5]),
+     name="GHG Emissions"), 
+     row=1, col=1)
+
+fig1.add_trace(go.Pie(
+     values=[27, 11, 25, 8, 1, 3, 25],
+     labels=["US", "China", "European Union", "Russian Federation",
+             "Brazil", "India", "Rest of World"
+             ],
+     domain=dict(x=[0.5, 1.0]),
+     name="CO2 Emissions"),
+    row=1, col=2)
+
+st.plot(fig1)
