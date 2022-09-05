@@ -73,7 +73,7 @@ fig1.add_trace(
 fig1.add_trace(
     go.Bar(x=months, y=countmale,marker=dict(color=countmale, coloraxis="coloraxis")),row=1, col=2)
  
-fig1.update_layout(coloraxis=dict(colorscale='YlGnBu'), showlegend=False)   
+fig1.update_layout(coloraxis=dict(colorscale='YlGnBu'), showlegend=False,margin=dict(l=20, r=20, t=20, b=20))   
 st.plotly_chart(fig1)
 
 fig2 = make_subplots(rows=1, cols=2,subplot_titles=("Number of Subscribers per Month", "Number of Customers per Month"))
@@ -83,6 +83,6 @@ fig2.add_trace(
 fig2.add_trace(
     go.Bar(x=months, y=count_customer,marker=dict(color=count_customer, coloraxis="coloraxis")),row=1, col=2)
  
-fig2.update_layout(coloraxis=dict(colorscale='dense'), showlegend=False)   
+fig2.update_layout(coloraxis=dict(colorscale='dense'), showlegend=False,margin=dict(l=20, r=20, t=20, b=20))   
 st.plotly_chart(fig2)
 
