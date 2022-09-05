@@ -104,16 +104,9 @@ st.plotly_chart(fig2)
 
 fig = make_subplots(rows=1, cols=2)
 fig.add_trace(
-    go.Bar(
-        x=[1, 2, 3], 
-        y=[4, 5, 6]),
-        row=1, col=1
-    )
+    go.Bar(df2, x='MONTH', y='NUMBER_OF_TRIPS'),row=1, col=1)
 #Second SubPlot
 fig.add_trace(
-    go.Bar(
-        x=[20, 30, 40], 
-        y=[50, 60, 70]),
-        row=1, col=2
-    )
+    go.Bar(df2, x='MONTH', y='NUMBER_OF_BIKES'),row=1, col=1)
+    
 st.plotly_chart(fig)
