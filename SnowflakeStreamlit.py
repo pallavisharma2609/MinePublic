@@ -31,30 +31,19 @@ def init_connection():
 
 conn = init_connection()
 
-# Perform query.style='text-align: center;
-#st.title('NYC Citibike Statistics')
+
 st.markdown(f'<h1 style="color:#33ff33;font-size:30px;text-align:center;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def run_query(query):
     df = pd.read_sql_query(query,conn)
-    
     return df
 
-#rows = run_query("SELECT * from trips limit 10;")
-#df_pal = pd.read_sql_query('SELECT * from trips limit 10',conn)
-#st.dataframe(df_pal)
 
-df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
+
+df1=run_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #st.dataframe(df1)
 
-#source = df1
-
-# importing the modules
-
-
-#year_choice ='2018'
-#months_choice='13'
 years = df1["YEAR"].drop_duplicates()
 year_choice = st.sidebar.selectbox('Select Year', years) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
@@ -86,7 +75,7 @@ top = numberoftrips,
 width = width)
 graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
 
-#st.markdown(f'<h1 style="color:#ffd700;font-size:18px;">{"Number of Trips per Month"}</h1>', unsafe_allow_html=True)
+
 
 graph1 = figure(title = "Number of Bikes per Months",width=450, height=350)
 
