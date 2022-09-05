@@ -9,7 +9,6 @@ import snowflake.connector
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from plotly.offline import plot
 from plotly.subplots import make_subplots
 
 
@@ -59,7 +58,7 @@ bind_socket()
 #fig = make_subplots(rows=1, cols=2)
 
 
-fig = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"),column_widths =[450,450])
+fig = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"))
 fig.add_trace(
     go.Bar( x=months, y=numberoftrips,marker=dict(color=numberoftrips, coloraxis="coloraxis")),row=1, col=1)
 #Second SubPlot
@@ -72,7 +71,7 @@ st.plotly_chart(fig)
 
 
 
-fig1 = make_subplots(rows=1, cols=2, specs=[[{"type": "pie"}, {"type": "pie"}]])
+fig1 = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"))
 
 
 fig1.add_trace(go.Pie(
@@ -93,4 +92,4 @@ fig1.add_trace(go.Pie(
      name="CO2 Emissions"),
     row=1, col=2)
 
-st.plot(fig1)
+st.plotly_chart(fig1)
