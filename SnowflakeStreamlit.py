@@ -77,6 +77,6 @@ fig1.add_trace(
 fig1.add_trace(
     go.Bar(x=months, y=countmale,marker=dict(color=countmale, coloraxis="coloraxis")),row=1, col=2)
  
-fig1.update_layout(coloraxis=dict(colorscale='YlGnBl'), showlegend=False)   
+fig1.update_layout(coloraxis=dict(colorscale='YlGnBu'), showlegend=False)   
 st.plotly_chart(fig1)
 
