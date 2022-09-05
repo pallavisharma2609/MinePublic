@@ -57,50 +57,18 @@ numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["
 numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 countfemale = df1['COUNT_FEMALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
 countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
-df2 = df1.loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
-
-#st.write(numberoftrips)
-#st.write(numberofbikes)
 
 
 
-graph = figure(title = "Number of Trips per Month",width=450, height=350)
+@st.cache
+def bind_socket():
+    # This function will only be run the first time it's called
+    st.snow()
 
-width = 0.5
+bind_socket()
 
-graph.vbar(months,
-top = numberoftrips,
-width = width)
-graph.add_tools(HoverTool(tooltips=[("Number of Trips","@top")]))
-
-
-
-graph1 = figure(title = "Number of Bikes per Months",width=450, height=350)
-
-width = 0.5
-
-graph1.vbar(months,
-top = numberofbikes,
-width = width,color=Spectral6)
-graph1.add_tools(HoverTool(tooltips=[("Number of Bikes","@top")]))
-output_file("dark_minimal.html")
-#st.bokeh_chart(graph, use_container_width=True)
-st.bokeh_chart(row(graph, graph1))
-
-#df2 = [months,numberoftrips]
-#fig = px.bar(df2, x=months, y=numberoftrips)
-
-
-st.snow()
 #fig = make_subplots(rows=1, cols=2)
 
-fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
-             title = "Number of Trips per Months",width=450, height=350)
-fig2 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
-             title = "Number of Bikes per Months",width=450, height=350)
-
-st.plotly_chart(fig1)
-st.plotly_chart(fig2)
 
 fig = make_subplots(rows=1, cols=2)
 fig.add_trace(
@@ -110,3 +78,4 @@ fig.add_trace(
     go.Bar(x=months, y=numberofbikes),row=1, col=2)
     
 st.plotly_chart(fig)
+st.snow()
