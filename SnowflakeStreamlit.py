@@ -75,4 +75,3 @@ fig.add_trace(
     go.Bar(x=months, y=numberofbikes),row=1, col=2)
     
 st.plotly_chart(fig)
-st.snow()
