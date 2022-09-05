@@ -27,7 +27,7 @@ import time
 st.markdown(f'<h1 style="color:#02A4D3;font-size:40px;text-align:center;">{"Welcome to Snowflake Streamlit!"}</h1>', unsafe_allow_html=True)
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
+@st.experimental_singleton(ttl=600)
 def init_connection():
        return snowflake.connector.connect(**st.secrets["snowflake"])
 
