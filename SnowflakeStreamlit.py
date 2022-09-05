@@ -33,7 +33,7 @@ select_month_range = sorted(months.unique())
 
 
 
-select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=12)
+select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range,value=6)
 #months_choice = st.sidebar.selectbox('Select Month', months)
 st.write('I have selected Months till ', select_month_slider, ' of Year ',year_choice)
 numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
