@@ -95,4 +95,5 @@ fig = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
              title = "Number of Trips per Months",width=450, height=350)
 fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
              title = "Number of Bikes per Months",width=450, height=350)
+output_file("dark_minimal.html")
 st.plotly_chart(row(fig,fig1))
