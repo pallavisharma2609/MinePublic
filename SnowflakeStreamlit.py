@@ -27,7 +27,7 @@ df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #st.dataframe(df1)
 
 years = df1["YEAR"].drop_duplicates()
-year_choice = st.sidebar.selectbox('Select Year', years) 
+year_choice = st.sidebar.selectbox('Select Year', years,value=2017) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
 select_month_range = sorted(months.unique())
 
