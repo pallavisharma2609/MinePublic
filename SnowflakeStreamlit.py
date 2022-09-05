@@ -67,7 +67,7 @@ bind_socket()
 #fig = make_subplots(rows=1, cols=2)
 
 
-fig = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"))
+fig = make_subplots(rows=1, cols=2,subplot_titles=("Number of Trips per Month", "Number of Bikes per Month"),row_width=[0.5,0.5])
 fig.add_trace(
     go.Bar( x=months, y=numberoftrips),row=1, col=1)
 #Second SubPlot
