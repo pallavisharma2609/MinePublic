@@ -7,19 +7,10 @@ Here's our first attempt at using data to create a table:
 import streamlit as st
 import snowflake.connector
 import pandas as pd
-import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from bokeh.plotting import figure, output_file, show
-from bokeh.models import Range1d
-from bokeh.models import HoverTool
-from bokeh.io import curdoc
-from bokeh.layouts import row
-from bokeh.themes import built_in_themes
-from bokeh.palettes import Spectral6
-from bokeh.models import ColumnDataSource
 from plotly.subplots import make_subplots
-import time
+
 
 
 
@@ -27,7 +18,7 @@ import time
 st.markdown(f'<h1 style="color:#02A4D3;font-size:40px;text-align:center;">{"Welcome to Snowflake Streamlit!"}</h1>', unsafe_allow_html=True)
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-@st.experimental_singleton(ttl=600)
+@st.experimental_singleton
 def init_connection():
        return snowflake.connector.connect(**st.secrets["snowflake"])
 
@@ -57,7 +48,7 @@ countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] =
 
 
 
-@st.experimental_memo(ttl=600)
+@st.cache(suppress_st_warning=True)
 def bind_socket():
     # This function will only be run the first time it's called
     st.snow()
