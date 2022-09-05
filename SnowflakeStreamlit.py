@@ -86,3 +86,7 @@ fig2.add_trace(
 fig2.update_layout(autosize=True,coloraxis=dict(colorscale='dense'), showlegend=False,margin=dict(l=20, r=20, t=20, b=20))   
 st.plotly_chart(fig2)
 
+if st.button('Thank you !'):
+     st.snow()
+else:
+     st.write('Thank you !')
