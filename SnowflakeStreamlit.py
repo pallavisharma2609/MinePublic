@@ -59,6 +59,11 @@ years = df1["YEAR"].drop_duplicates()
 year_choice = st.sidebar.selectbox('Select Year', years) 
 months = df1["MONTH"].loc[df1["YEAR"] == year_choice]
 select_month_range = sorted(months.unique())
+st.write(years)
+st.write(year_choice)
+st.write(months)
+st.write(select_month_range)
+
 
 select_month_slider = st.sidebar.select_slider('Use slider to display Month range:',select_month_range)
 #months_choice = st.sidebar.selectbox('Select Month', months)
@@ -67,7 +72,8 @@ numberoftrips = df1['NUMBER_OF_TRIPS'].loc[df1["YEAR"] == year_choice].loc[df1["
 numberofbikes = df1['NUMBER_OF_BIKES'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] <= select_month_slider]
 countfemale = df1['COUNT_FEMALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
 countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] == select_month_slider]
-
+st.write(numberoftrips)
+st.write(numberofbikes)
 
 output_file("dark_minimal.html")
 
