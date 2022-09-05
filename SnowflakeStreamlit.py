@@ -99,5 +99,5 @@ fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
 fig2 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
              title = "Number of Bikes per Months",width=450, height=350)
 
-st.plotly_chart(fig1)
-st.plotly_chart(fig2)
+st.plotly_chart(fig1,use_container_width=False)
+st.plotly_chart(fig2,use_container_width=False)
