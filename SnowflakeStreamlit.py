@@ -107,6 +107,6 @@ fig.add_trace(
     go.Bar( x=months, y=numberoftrips),row=1, col=1)
 #Second SubPlot
 fig.add_trace(
-    go.Bar(x=months, y=numberofbikes),row=1, col=1)
+    go.Bar(x=months, y=numberofbikes),row=1, col=2)
     
 st.plotly_chart(fig)
