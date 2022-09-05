@@ -35,13 +35,13 @@ conn = init_connection()
 st.markdown(f'<h1 style="color:#33ff33;font-size:30px;text-align:center;">{"NYC Citibike Statistics"}</h1>', unsafe_allow_html=True)
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
-def run_query(query):
+def _run_query(query):
     df = pd.read_sql_query(query,conn)
     return df
 
 
 
-df1=run_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
+df1=_run_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
 #st.dataframe(df1)
 
 years = df1["YEAR"].drop_duplicates()
