@@ -57,7 +57,7 @@ countmale = df1['COUNT_MALE'].loc[df1["YEAR"] == year_choice].loc[df1["MONTH"] =
 
 
 
-@st.cache(suppress_st_warning=True)
+@st.experimental_memo(ttl=600)
 def bind_socket():
     # This function will only be run the first time it's called
     st.snow()
