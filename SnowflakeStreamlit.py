@@ -46,6 +46,7 @@ def run_query(query):
 #st.dataframe(df_pal)
 
 df1=pd.read_sql_query('SELECT * FROM USAGE_BY_YR_MONTH',conn)
+st.dataframe(df1)
 
 #source = df1
 
