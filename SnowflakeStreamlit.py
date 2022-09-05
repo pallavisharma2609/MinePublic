@@ -105,4 +105,4 @@ df2 = [months,numberoftrips]
 
 st.snow()
 #st.plotly_chart(fig, use_container_width=True)
-st.bar_chart( df2,x=months, y=numberoftrips, width=0, height=0, use_container_width=True)
+#st.bar_chart( df2,x=months, y=numberoftrips, width=0, height=0, use_container_width=True)
