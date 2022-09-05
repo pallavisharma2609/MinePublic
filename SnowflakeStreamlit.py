@@ -9,6 +9,7 @@ import snowflake.connector
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import Range1d
 from bokeh.models import HoverTool
@@ -17,6 +18,7 @@ from bokeh.layouts import row
 from bokeh.themes import built_in_themes
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource
+from plotly.subplots import make_subplots
 import time
 
 
@@ -90,10 +92,11 @@ st.bokeh_chart(row(graph, graph1))
 
 
 st.snow()
+fig = make_subplots(rows=1, cols=2)
 
 fig = px.bar(df2, x='MONTH', y='NUMBER_OF_TRIPS',
-             title = "Number of Trips per Months",width=450, height=350)
-fig1 = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
-             title = "Number of Bikes per Months",width=450, height=350)
+             title = "Number of Trips per Months",width=450, height=350,row=1, col=1)
+fig = px.bar(df2, x='MONTH', y='NUMBER_OF_BIKES',
+             title = "Number of Bikes per Months",width=450, height=350,row=1, col=2)
 output_file("dark_minimal.html")
-st.plotly_chart(row(fig,fig1))
+st.plotly_chart(fig)
