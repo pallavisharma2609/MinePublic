@@ -107,6 +107,6 @@ st.bokeh_chart(row(graph, graph1))
 st.snow()
 
 fig = px.bar(df1, x='YEAR', y='NUMBER_OF_TRIPS',
-            color='lifeExp',
+            color='NUMBER_OF_TRIPS',
             height=400)
 st.plotly_chart(fig)
